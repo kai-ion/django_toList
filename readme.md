@@ -109,3 +109,41 @@ python manage.py migrate
 3. Run `python manage.py migrate` to apply those changes to your database.
 
 This process ensures that your database structure is always in sync with your Django application’s models, allowing you to effectively manage data storage and retrieval.
+
+### Step 4: Create a To-Do List and Sample To-Do Item
+
+first create super user
+python manage.py createsuperuser
+
+import module and register model in admin.py
+
+now you can run
+python manage.py runserver
+and go to address http://127.0.0.1:8000/admin/
+to see the login screen and admin page that displays links to todo lists and todo items
+
+
+
+
+1. **Access the Admin Interface**: 
+   - On the left side of the main Django administration page, click on **To do lists**.
+
+2. **Add a New To-Do List**:
+   - On the next screen, click the button at the top right that says **ADD TO DO LIST**.
+   - In the form that appears, enter a title for your list (e.g., **Things to do today**).
+   - Click the **SAVE** button on the extreme right of the screen. 
+   - The new list will now appear on a page headed **Select to do list to change**.
+
+3. **Add a Sample To-Do Item**:
+   - Instead of selecting the newly created list, click on the **+ Add** button next to **To do items** on the left of the screen.
+   - A new form will appear for adding a To-Do item.
+   - Fill in the form with the following sample data:
+     - **Title**: Start my to-do list
+     - **Description**: First things first.
+     - **Due Date**: Leave this as it is (it will default to one week from today).
+     - **To-Do List**: Select your newly created to-do list title from the dropdown menu.
+   - Click the **SAVE** button to save the item.
+
+4. **Explore the Admin Interface**:
+   - You have now created one list and one item using the admin interface.
+   - Feel free to explore the pages to get a feel for how they work. The admin interface is a useful tool for quickly managing data as a developer but is not intended for regular user access.
