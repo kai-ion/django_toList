@@ -1,0 +1,30 @@
+<!-- todo_list/todo_app/templates/base.html -->
+<!-- Base template for Django To-do Lists application -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags for character encoding and responsive design -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Link to Simple.css for basic styling -->
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <title>Django To-do Lists</title> <!-- Title of the webpage -->
+</head>
+
+<body>
+    <div>
+        <!-- Main heading that redirects to the index page when clicked -->
+        <h1 onclick="location.href='{% url 'index' %}'">
+            Django To-do Lists
+        </h1>
+    </div>
+    <div>
+        <!-- Placeholder for content specific to different pages -->
+        {% block content %}
+        This content will be replaced by different HTML code for each page.
+        {% endblock %}
+    </div>
+</body>
+
+</html>

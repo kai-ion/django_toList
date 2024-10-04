@@ -147,3 +147,36 @@ to see the login screen and admin page that displays links to todo lists and tod
 4. **Explore the Admin Interface**:
    - You have now created one list and one item using the admin interface.
    - Feel free to explore the pages to get a feel for how they work. The admin interface is a useful tool for quickly managing data as a developer but is not intended for regular user access.
+
+
+step 5 create django views
+
+### Step 5: Update Views for the To-Do List
+
+1. **Open the `views.py` File**:
+   - Navigate to the `todo_list/todo_app` directory and open the `views.py` file.
+
+2. **Add the ListView**:
+   - Update your `views.py` file with the following code:
+
+next create a base template
+Create a new folder inside the todo_app/ directory named templates/. Now add a new file to this folder. You can call it base.html. 
+
+
+ Create a Base Template
+
+1. **Create a Templates Folder**  
+   Inside the `todo_app/` directory, create a new folder named `templates/`. This folder will be used to store all the HTML templates for your Django application.
+
+2. **Add the Base Template**  
+   Within the `templates/` folder, create a new file named `base.html`. This file will serve as the foundation for your application's HTML structure and styling.
+
+3. **Structure of `base.html`**  
+   Your `base.html` file should include the necessary HTML structure, such as the `<!doctype html>` declaration, `<head>` section for meta tags and stylesheets, and a `<body>` section that will contain a header and a content block. Here's a basic example of what it should look like:
+
+4. **Purpose of the Base Template**  
+   The `base.html` file is designed to provide a consistent layout for all pages in your application. By using template inheritance, you can create other templates that extend this base template, allowing you to maintain a uniform look and feel across your site.
+
+---
+
+This section provides clear instructions for creating the base template, ensuring that users understand the steps involved and the purpose of each component.
