@@ -201,3 +201,8 @@ You’ve already created the app-level URL file. Now it’s time to add the firs
 
 next add a subclass Listview to display a list of todo items
 Now you can do something very similar to display a list of to-do items. You’ll start by creating another view class, this time called ItemListView. Like the class ListListView, ItemListView will extend the generic Django class ListView. Open views.py and add your new class
+
+Show the Items in a To-Do List
+Your next task is to create a template for displaying the TodoItems in a given list. Once again, the {% for <item> in <list> %} … {% endfor %} construct will be indispensable. Create the new template, todo_list.html
+
+So you’ve coded an ItemListView class, but so far, there’s no way for your user to invoke it. You need to add a new route into urls.py so that ItemListView can be used
