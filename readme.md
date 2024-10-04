@@ -196,3 +196,8 @@ You’ve now created the home page of your application, which will display a lis
    The home page will display a list of all the to-do lists that have been created. Each title will be a clickable link that directs users to the corresponding list page. If no to-do lists exist, a friendly message will prompt the user to create one. 
 
 
+next build a request handler
+You’ve already created the app-level URL file. Now it’s time to add the first route to that file. Edit the file todo_app/urls.py to add the route
+
+next add a subclass Listview to display a list of todo items
+Now you can do something very similar to display a list of to-do items. You’ll start by creating another view class, this time called ItemListView. Like the class ListListView, ItemListView will extend the generic Django class ListView. Open views.py and add your new class

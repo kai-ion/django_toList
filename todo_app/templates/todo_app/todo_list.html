@@ -1,0 +1,35 @@
+<!-- todo_list/todo_app/templates/todo_app/todo_list.html -->
+{% extends "base.html" %}  <!-- Extend the base template for consistent layout -->
+
+{% block content %}  <!-- Begin the content block specific to this template -->
+<div>
+    <div>
+        <div>
+            <h3>Edit list:</h3>  <!-- Header indicating the section for editing the list -->
+            <h5>{{ todo_list.title | upper }}</h5>  <!-- Display the title of the current To-Do List in uppercase -->
+        </div>
+        <ul>  <!-- Start an unordered list to display the To-Do items -->
+            {% for todo in object_list %}  <!-- Loop through each To-Do item in the object_list -->
+            <li>
+                <div>
+                    <div
+                        role="button"  <!-- Indicate this div acts like a button for accessibility -->
+                        onclick="location.href='#'">  <!-- Placeholder for future functionality -->
+                        {{ todo.title }}  <!-- Display the title of the To-Do item -->
+                        (Due {{ todo.due_date | date:"l, F j" }})  <!-- Display the due date formatted as 'Day, Month Date' -->
+                    </div>
+                </div>
+            </li>
+            {% empty %}  <!-- If there are no items, display this message -->
+            <p>There are no to-do items in this list.</p>
+            {% endfor %}  <!-- End of the for loop -->
+        </ul>
+        <p>
+            <input
+                value="Add a new item"  <!-- Button to add a new To-Do item -->
+                type="button"
+                onclick="location.href='#'" />  <!-- Placeholder for future functionality -->
+        </p>
+    </div>
+</div>
+{% endblock %}  <!-- End of the content block -->
