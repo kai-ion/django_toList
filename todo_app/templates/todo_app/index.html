@@ -1,0 +1,26 @@
+<!-- todo_list/todo_app/templates/todo_app/index.html -->
+
+{% extends "base.html" %} <!-- Extend the base template for consistent layout -->
+
+{% block content %} <!-- Start the content block to define specific page content -->
+
+<!-- Check if there are any to-do lists to display -->
+{% if object_list %}
+<h3>All my lists</h3> <!-- Display a header if lists are present -->
+{% endif %}
+
+<ul> <!-- Start an unordered list to display the to-do lists -->
+    {% for todolist in object_list %} <!-- Iterate over each to-do list in the object_list -->
+    <li>
+        <div
+            role="button" <!-- Indicate that this div is clickable like a button -->
+            onclick="location.href='{% url "list" todolist.id %}'"> <!-- Redirect to the list page when clicked -->
+            {{ todolist.title }} <!-- Display the title of the to-do list -->
+        </div>
+    </li>
+    {% empty %} <!-- If there are no to-do lists, display this message -->
+    <h4>You have no lists!</h4> <!-- Inform the user that no lists are available -->
+    {% endfor %}
+</ul> <!-- End of the unordered list -->
+
+{% endblock %} <!-- End of the content block -->

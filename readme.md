@@ -177,6 +177,22 @@ Create a new folder inside the todo_app/ directory named templates/. Now add a n
 4. **Purpose of the Base Template**  
    The `base.html` file is designed to provide a consistent layout for all pages in your application. By using template inheritance, you can create other templates that extend this base template, allowing you to maintain a uniform look and feel across your site.
 
----
+Add home page
+Django’s convention for the templates belonging to an app is that they live in a folder named templates/<appname> inside the app folder. So although the base template base.html went in the todo_app/templates/ folder, the others will all be placed inside a folder named todo_app/templates/todo_app/:
+Your first objective will be to code the template for the home page of your website, traditionally named index.html.
+You’ve now created the home page of your application, which will display a list of all your to-do lists if you have any, or an informative message if not. Your user will be directed to other pages, or back to this one, by the URL dispatcher. 
 
-This section provides clear instructions for creating the base template, ensuring that users understand the steps involved and the purpose of each component.
+
+### Step 5: Create a Base Template (Continued)
+
+5. **Add the Home Page Template**  
+   To follow Django's convention, create a new folder named `todo_app` inside the `templates/` directory. The structure should be `todo_app/templates/todo_app/`.
+
+   Within this newly created folder, add a file named `index.html`. This file will serve as the template for the home page of your application.
+
+
+
+7. **Purpose of the Home Page**  
+   The home page will display a list of all the to-do lists that have been created. Each title will be a clickable link that directs users to the corresponding list page. If no to-do lists exist, a friendly message will prompt the user to create one. 
+
+
