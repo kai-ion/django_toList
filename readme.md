@@ -207,23 +207,24 @@ Your next task is to create a template for displaying the TodoItems in a given l
 
 So you’ve coded an ItemListView class, but so far, there’s no way for your user to invoke it. You need to add a new route into urls.py so that ItemListView can be used
 
-### Step 6: Create and Update Model Objects in Django
+## Step 6: Create and Update Model Objects in Django
 
-In this step, you'll add functionality to create and update items in your To-Do application.
+In this step, we will focus on adding new views that support **Create** and **Update** actions for the To-Do application. Afterward, URLs will be added to reference these views, and the `todo_items.html` template will be updated to allow users to navigate to these new URLs for creating and updating items in their to-do list.
 
-#### Adding Views for Create and Update Actions
-To enable the ability to create new items and update existing ones, you will define two new views: one for creating items (`ItemCreate`) and one for updating items (`ItemUpdate`). These views will be responsible for handling user input, rendering the necessary forms, and saving the data to the database.
+### ListCreate View
 
-- **ItemCreate**: This view allows users to create new items. It will use the `CreateView` class, which provides a form for creating a new object. The form will be pre-populated with the specific To-Do List to which the new item will belong. Once the user submits the form, the item will be saved, and the user will be redirected to the updated list view.
+The `ListCreate` view is responsible for creating a new to-do list. It defines a form with a single field, the **title** of the list, which is the only public attribute of a `ToDoList` object. In addition to this, the form itself has a title, which is passed in the context data. This title helps guide the user by indicating that they are creating a new list, enhancing the user experience.
 
-- **ItemUpdate**: This view allows users to update existing items. Using the `UpdateView` class, the view will provide a form pre-filled with the details of the selected To-Do Item, allowing the user to edit the title, description, and due date. After submitting the updated information, the item will be saved, and the user will be redirected back to the list view.
+### ItemCreate View
 
-#### Adding URLs for Create and Update Actions
-After defining the views, you will need to add corresponding routes in your app’s URL configuration. These routes will map specific URLs to the `ItemCreate` and `ItemUpdate` views, enabling navigation between different parts of the application. 
+The `ItemCreate` view generates a form with four fields: the to-do list the item belongs to, the title of the item, a description, and a due date. Two methods are overridden to enhance the functionality of the form:
 
-For example, the URL for creating a new item might look something like `/list/1/add_item/`, and the URL for editing an existing item might look like `/list/1/edit_item/2/`, where `1` represents the list ID and `2` represents the item ID.
+- **`get_initial()`**: This method pre-populates the form with useful initial data, such as automatically selecting the correct to-do list based on the list ID passed in the URL.
+- **`get_context_data()`**: This method adds additional context for the template, such as the specific to-do list the item is being added to, as well as a custom title for the form ("Create a new item").
+- **`get_success_url()`**: This method defines the URL the user is redirected to after successfully creating a new item. In this case, it redirects to the list view, where the user can see the entire to-do list that now includes the newly created item.
 
-#### Updating Templates with Navigation Links
-Next, you will update the templates (specifically `todo_items.html`) to include links that will allow users to navigate to the Create and Update pages. These links will enable users to easily add new items or edit existing ones directly from the list view.
+### ItemUpdate View
 
-By the end of this step, your application will support the ability to create and update To-Do items, making it more interactive and functional.
+The `ItemUpdate` view is almost identical to `ItemCreate`, but it is used for updating existing to-do items rather than creating new ones. It also supplies a more appropriate title in the form, such as "Edit item", to let the user know they are updating an existing item. Like `ItemCreate`, it uses the same fields (to-do list, title, description, due date) and includes custom context and success URL behavior. The key difference lies in the form title, which clearly communicates to the user that they are editing an item rather than creating one. 
+
+By defining these views, users can now create and update both to-do lists and items, making the application more dynamic and user-friendly.
