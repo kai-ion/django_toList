@@ -238,27 +238,35 @@ In this step, you'll define routes that allow users to access the new views for 
 
 By adding these routes, you'll ensure that users can navigate to the appropriate pages for creating and updating lists and items, with the necessary data values already set based on the URL parameters. These routes will be named "list-add", "item-add", and "item-update" for easy reference throughout the application.
 
-New Views
-Next, you’ll need to provide some links in your templates to activate the new views. Just before the {% endblock %} tag in index.html, add a button
-A click on this button will now generate a request with the "list-add" pattern. If you look back at the corresponding urlpattern item in todo_app/urls.py, then you’ll see that the associated URL looks like "list/add/", and it causes the URL dispatcher to instantiate a ListCreate view.
+### New Views
 
-Now you’ll update the two dummy onclick events in todo_list.html
+To enable the creation and update of to-do lists and items, you'll need to update your templates with links that trigger the new views.
 
-The onclick event handlers now invoke the new URLs named "item-update" and "item-add". Notice again the syntax {% url "key" [param1 [, param2 [,...]]]%} in lines 18 and 32, where the urlpattern name is combined with data from context to construct hyperlinks.
+1. **Adding a Button to Create a New List (index.html):**
+   Just before the `{% endblock %}` tag in `index.html`, add a button that, when clicked, will send a request matching the "list-add" URL pattern. The "list-add" route, defined in `todo_app/urls.py`, will generate a URL that looks like "list/add/" and will instantiate the `ListCreate` view to allow users to create a new list.
 
-For example, in lines 15 to 21, you’re setting up a button-like div element with an onclick event handler.
+2. **Updating Onclick Events in todo_list.html:**
+   In `todo_list.html`, replace the dummy `onclick` events with event handlers that invoke the new URLs for updating and adding items. 
 
-Notice that the "item-update" URL requires IDs for both the list and the item to be updated, whereas "item-add" required only todo_list.id.
+   - For updating items, the URL named "item-update" requires two parameters: the `list_id` and the `item_id`.
+   - For adding new items, the "item-add" URL requires only the `todo_list.id` as a parameter.
 
-You’ll need templates to render your new ListCreate, ItemCreate, and ItemUpdate views. The first one that you’ll tackle is the form for creating a new list. Create a new template file named todolist_form.html
+   These URLs will be constructed dynamically using the `{% url %}` tag, which combines the URL pattern name with context variables to generate appropriate hyperlinks. For example, in lines 15 to 21, you're using an `onclick` event handler to trigger a button-like div that directs to the "item-update" view for an existing item.
 
-This page contains a <form> element in lines 9 to 19 that’ll generate a POST request when the user submits it, with the user-updated form contents as part of its payload. In this case, the form contains only the list title.
+3. **Creating Templates for ListCreate, ItemCreate, and ItemUpdate Views:**
+   You will need templates to render the forms for creating and updating both ToDoLists and ToDoItems.
 
-Line 10 uses the {% csrf_token %} macro, which generates a Cross-Site Request Forgery token, a necessary precaution for modern web forms.
+   - **todolist_form.html:**
+     This template will handle the form for creating a new list. Inside this template, you'll include a `<form>` element that generates a POST request when submitted. The form will only contain the title of the list, and you will utilize the `{{ form.as_p }}` tag to auto-generate the form content based on the model's structure.
+     
+     The `{{ form.as_p }}` tag will render the form fields inside a `<p>` tag, making it easy to layout the form with minimal effort. Don't forget to include the `{% csrf_token %}` for security purposes.
 
-Line 11 uses the {{ form.as_p }} tag to invoke the view class’s .as_p() method. This auto-generates the form contents from the fields attribute and the model structure. The form will be rendered as HTML inside a <p> tag.
+   - **todoitem_form.html:**
+     This template is similar but handles the creation or update of individual to-do items. Since a to-do item has multiple fields, you’ll render the form as a table for better structure using `{{ form.as_table }}`. When submitted, the form generates a POST request to create or update the item. A "Cancel" button will redirect the user back to the "list" URL with the current list ID as a parameter.
 
-Next, you’ll create another form that’ll allow the user to create a new ToDoItem, or edit the details of an existing one. Add the new template todoitem_form.html
-This time, you’re rendering the form as a table (lines 9 to 11), because there are several fields per item. Both CreateView and UpdateView contain a .form member with convenient methods like form.as_p() and form.as_table() to perform an automatic layout. The Submit button will generate a POST request using the form’s contents. The Cancel button will redirect the user to the "list" URL, passing along the current list id as a parameter.
+4. **Testing Your Application:**
+   Run your development server to verify that you can now create new to-do lists, add items to those lists, and update existing items. Check the form submissions, ensuring that the POST requests are processed correctly and that users are redirected appropriately after creating or updating their lists or items.
 
-Run your development server again to verify that you can now create new lists and add items to those lists
+```bash
+python manage.py runserver
+```
