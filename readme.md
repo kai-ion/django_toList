@@ -228,3 +228,37 @@ The `ItemCreate` view generates a form with four fields: the to-do list the item
 The `ItemUpdate` view is almost identical to `ItemCreate`, but it is used for updating existing to-do items rather than creating new ones. It also supplies a more appropriate title in the form, such as "Edit item", to let the user know they are updating an existing item. Like `ItemCreate`, it uses the same fields (to-do list, title, description, due date) and includes custom context and success URL behavior. The key difference lies in the form title, which clearly communicates to the user that they are editing an item rather than creating one. 
 
 By defining these views, users can now create and update both to-do lists and items, making the application more dynamic and user-friendly.
+
+
+In this step, you'll define routes that allow users to access the new views for creating and updating to-do lists and items. The routes will be added to the `urlpatterns` array, each with a unique name to allow for easy reference in your templates and views.
+
+- The "list-add" route will allow users to add a new to-do list. This route points to the view responsible for creating new lists, and it doesn't require any dynamic parameters.
+- The "item-add" route will enable users to add a new item to a specific to-do list. This route takes a dynamic `list_id` parameter, which ensures that the new item is associated with the correct list.
+- The "item-update" route is for updating an existing item within a to-do list. This route takes two dynamic parameters: `list_id` to identify the to-do list and `pk` (primary key) to identify the specific item being updated.
+
+By adding these routes, you'll ensure that users can navigate to the appropriate pages for creating and updating lists and items, with the necessary data values already set based on the URL parameters. These routes will be named "list-add", "item-add", and "item-update" for easy reference throughout the application.
+
+New Views
+Next, you’ll need to provide some links in your templates to activate the new views. Just before the {% endblock %} tag in index.html, add a button
+A click on this button will now generate a request with the "list-add" pattern. If you look back at the corresponding urlpattern item in todo_app/urls.py, then you’ll see that the associated URL looks like "list/add/", and it causes the URL dispatcher to instantiate a ListCreate view.
+
+Now you’ll update the two dummy onclick events in todo_list.html
+
+The onclick event handlers now invoke the new URLs named "item-update" and "item-add". Notice again the syntax {% url "key" [param1 [, param2 [,...]]]%} in lines 18 and 32, where the urlpattern name is combined with data from context to construct hyperlinks.
+
+For example, in lines 15 to 21, you’re setting up a button-like div element with an onclick event handler.
+
+Notice that the "item-update" URL requires IDs for both the list and the item to be updated, whereas "item-add" required only todo_list.id.
+
+You’ll need templates to render your new ListCreate, ItemCreate, and ItemUpdate views. The first one that you’ll tackle is the form for creating a new list. Create a new template file named todolist_form.html
+
+This page contains a <form> element in lines 9 to 19 that’ll generate a POST request when the user submits it, with the user-updated form contents as part of its payload. In this case, the form contains only the list title.
+
+Line 10 uses the {% csrf_token %} macro, which generates a Cross-Site Request Forgery token, a necessary precaution for modern web forms.
+
+Line 11 uses the {{ form.as_p }} tag to invoke the view class’s .as_p() method. This auto-generates the form contents from the fields attribute and the model structure. The form will be rendered as HTML inside a <p> tag.
+
+Next, you’ll create another form that’ll allow the user to create a new ToDoItem, or edit the details of an existing one. Add the new template todoitem_form.html
+This time, you’re rendering the form as a table (lines 9 to 11), because there are several fields per item. Both CreateView and UpdateView contain a .form member with convenient methods like form.as_p() and form.as_table() to perform an automatic layout. The Submit button will generate a POST request using the form’s contents. The Cancel button will redirect the user to the "list" URL, passing along the current list id as a parameter.
+
+Run your development server again to verify that you can now create new lists and add items to those lists
