@@ -206,3 +206,24 @@ Show the Items in a To-Do List
 Your next task is to create a template for displaying the TodoItems in a given list. Once again, the {% for <item> in <list> %} … {% endfor %} construct will be indispensable. Create the new template, todo_list.html
 
 So you’ve coded an ItemListView class, but so far, there’s no way for your user to invoke it. You need to add a new route into urls.py so that ItemListView can be used
+
+### Step 6: Create and Update Model Objects in Django
+
+In this step, you'll add functionality to create and update items in your To-Do application.
+
+#### Adding Views for Create and Update Actions
+To enable the ability to create new items and update existing ones, you will define two new views: one for creating items (`ItemCreate`) and one for updating items (`ItemUpdate`). These views will be responsible for handling user input, rendering the necessary forms, and saving the data to the database.
+
+- **ItemCreate**: This view allows users to create new items. It will use the `CreateView` class, which provides a form for creating a new object. The form will be pre-populated with the specific To-Do List to which the new item will belong. Once the user submits the form, the item will be saved, and the user will be redirected to the updated list view.
+
+- **ItemUpdate**: This view allows users to update existing items. Using the `UpdateView` class, the view will provide a form pre-filled with the details of the selected To-Do Item, allowing the user to edit the title, description, and due date. After submitting the updated information, the item will be saved, and the user will be redirected back to the list view.
+
+#### Adding URLs for Create and Update Actions
+After defining the views, you will need to add corresponding routes in your app’s URL configuration. These routes will map specific URLs to the `ItemCreate` and `ItemUpdate` views, enabling navigation between different parts of the application. 
+
+For example, the URL for creating a new item might look something like `/list/1/add_item/`, and the URL for editing an existing item might look like `/list/1/edit_item/2/`, where `1` represents the list ID and `2` represents the item ID.
+
+#### Updating Templates with Navigation Links
+Next, you will update the templates (specifically `todo_items.html`) to include links that will allow users to navigate to the Create and Update pages. These links will enable users to easily add new items or edit existing ones directly from the list view.
+
+By the end of this step, your application will support the ability to create and update To-Do items, making it more interactive and functional.
