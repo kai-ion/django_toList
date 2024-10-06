@@ -315,3 +315,60 @@ To enable deletion functionality within the user interface, follow these steps:
    - This button should link to the deletion URL for the specific list, giving users the option to remove a list along with its associated items.
 
 By incorporating these buttons into the templates, you provide users with the ability to directly delete items and lists from the interface, making the application more interactive and functional.
+
+### Conclusion
+
+This Django To-Do List application demonstrates a variety of features and concepts, including:
+
+- Creating a web app using Django
+- Structuring a data model with one-to-many relationships
+- Exploring and managing data using the Django admin interface
+- Displaying lists and items by coding custom templates
+- Handling standard database operations (CRUD) through class-based views
+- Configuring URLs to control the Django URL dispatcher and route requests to the correct views
+- Applying modern object-oriented principles and inheritance for code reuse and improved maintainability
+
+### Running the Django To-Do List App
+
+To run the application, execute the following command:
+
+```bash
+python manage.py runserver
+```
+
+If everything is set up correctly, you'll be greeted by the home page of your Django To-Do List application. The heading "Django To-do Lists" will appear on every page, serving as a link back to the home page, making navigation easy.
+
+### Using the Application
+
+1. **Adding a New List**:
+   - Click on **Add a new list** to create a new to-do list.
+   - You'll be taken to a form where you can enter the list's title.
+   - After saving, you'll be directed to the Edit List page, which will display a message if there are no to-do items in the list.
+
+2. **Adding Items to a List**:
+   - Click on **Add a new item** to create a new to-do item.
+   - Fill out the form with a title, description, and due date (defaulting to one week ahead, though you can modify it).
+
+3. **Navigating the App**:
+   - Return to the home page at any time by clicking the "Django To-do Lists" heading.
+   - From the home page, you can add more lists, add items to existing lists, modify item details, or delete lists and items.
+
+Images of the application in action:
+
+- **Home Page**: This is the starting point of the application where you can view, add, and manage your to-do lists.
+
+  ![Home Page](img/homepage.png)
+
+- **Create Item Form**: This form allows you to add a new item to a to-do list, with all the relevant fields like title, description, and due date.
+
+  ![Create Item Form](img/create_item_form.png)
+
+- **Home Page with Lists**: Here's an example of what your home page might look like after adding some lists.
+
+  ![Homepage with Lists](img/homepage_list.png)
+
+- **List Details**: This view shows the details of a specific to-do list, including its items.
+
+  ![List Details](img/list.png)
+
+By following these steps and features, you can fully test and use the Django To-Do List app.
