@@ -270,3 +270,5 @@ To enable the creation and update of to-do lists and items, you'll need to updat
 ```bash
 python manage.py runserver
 ```
+
+Step 7: Delete To-Do Lists and Items

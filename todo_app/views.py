@@ -4,11 +4,12 @@
 from django.shortcuts import render
 from django.views.generic import ListView  # Import ListView for creating list-based views
 from .models import ToDoList, ToDoItem  # Import ToDoList and ToDoItem models
-from django.urls import reverse  # Import reverse for creating success URL redirects
-from django.views.generic import (
-    ListView,   # Import ListView for displaying lists
-    CreateView, # Import CreateView for creating new objects
-    UpdateView, # Import UpdateView for updating existing objects
+from django.urls import reverse, reverse_lazy  # reverse and reverse_lazy for generating URLs in views
+from django.views.generic import (  # Importing generic views to handle CRUD operations
+    ListView,   # Used for displaying lists of objects
+    CreateView, # Used for creating new objects
+    UpdateView, # Used for updating existing objects
+    DeleteView, # Used for deleting objects
 )
 
 # Define a view for displaying a list of To-Do Lists
@@ -94,3 +95,23 @@ class ItemUpdate(UpdateView):
     # Override get_success_url to redirect the user back to the To-Do List view after update
     def get_success_url(self):
         return reverse("list", args=[self.object.todo_list_id])  # Redirect to the To-Do List view
+
+# Define a view for deleting an existing To-Do List
+class ListDelete(DeleteView):
+    model = ToDoList  # Specify the model to use for this view (ToDoList)
+    success_url = reverse_lazy("index")  # Redirect to the index after list deletion
+
+# Define a view for deleting an existing To-Do Item
+class ItemDelete(DeleteView):
+    model = ToDoItem  # Specify the model to use for this view (ToDoItem)
+
+    # Override get_success_url to redirect the user back to the To-Do List after item deletion
+    def get_success_url(self):
+        # Redirect to the To-Do List view after the item is deleted
+        return reverse_lazy("list", args=[self.kwargs["list_id"]])
+
+    # Override get_context_data to add the current To-Do List to the context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)  # Get the existing context data
+        context["todo_list"] = self.object.todo_list  # Add the current To-Do List to the context
+        return context  # Return the updated context
