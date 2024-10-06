@@ -283,5 +283,28 @@ Next, create two separate view classes:
 
 These views will ensure that users can efficiently remove lists or individual items, streamlining their interaction with the To-Do List application.
 
-Define Deletion Confirmations and URLS
-Create a new template in the file todolist_confirm_delete.html
+
+To add deletion functionality to the To-Do List and To-Do Item objects, follow these steps:
+
+1. **Create Deletion Templates**:
+   - Create a new template named `todolist_confirm_delete.html` for confirming the deletion of a `ToDoList` object.
+   - Create another template named `todoitem_confirm_delete.html` for confirming the deletion of a `ToDoItem` object.
+   - Both templates should include a confirmation message and two buttons: one for confirming the deletion and one for canceling the action.
+   - If the user confirms the deletion, the object is deleted, and Django redirects to the appropriate page. For `ToDoList` objects, the redirection will be to the home page. For `ToDoItem` objects, the redirection will be to the parent list page.
+
+2. **Define Routes for Deletion**:
+   - In the `urls.py` file, define the routes for deleting `ToDoList` and `ToDoItem` objects.
+   - Ensure that the appropriate URLs are mapped to the `DeleteView` subclasses responsible for handling the deletion logic.
+
+3. **Cancellation Behavior**:
+   - For `ToDoList` deletion, if the user cancels the action, they are redirected to the home page.
+   - For `ToDoItem` deletion, if the user cancels the action, they are redirected to the parent list view.
+
+This ensures that users can delete both to-do lists and items with confirmation prompts, improving the overall functionality and user experience.
+
+
+
+Enable Deletions
+So far, you’ve created views and URLS to delete things, but there’s no mechanism for your user to invoke this functionality. You’ll fix that next.
+
+You’ll start by adding a button to todoitem_form.html to allow the user to delete the current item
