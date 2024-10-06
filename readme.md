@@ -271,4 +271,14 @@ To enable the creation and update of to-do lists and items, you'll need to updat
 python manage.py runserver
 ```
 
-Step 7: Delete To-Do Lists and Items
+### Step 7: Delete To-Do Lists and Items
+
+To allow users to delete both To-Do Lists and To-Do Items, you'll need to implement the delete functionality by creating two new views that subclass `DeleteView` from Django's class-based views. These views will handle the deletion process and redirect the user to the appropriate page after the deletion.
+
+First, ensure that you import the necessary modules from `django.views.generic`, such as `DeleteView`, in your `views.py` file.
+
+Next, create two separate view classes:
+1. **ListDelete** – This will manage the deletion of an entire To-Do List. Once a list is deleted, the user will be redirected to the homepage or another list-related page.
+2. **ItemDelete** – This will handle the deletion of a single To-Do Item from a list. After the deletion, the user will be redirected back to the associated To-Do List to view the remaining items.
+
+These views will ensure that users can efficiently remove lists or individual items, streamlining their interaction with the To-Do List application.
