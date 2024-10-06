@@ -16,6 +16,14 @@ urlpatterns = [
     # CRUD patterns for ToDoLists (Create, Read, Update, Delete)
     # Route for adding a new to-do list using the ListCreate view
     path("list/add/", views.ListCreate.as_view(), name="list-add"),
+    
+    # Route for deleting an existing to-do list, identified by its primary key (pk)
+    path(
+        "list/<int:pk>/delete/",  # URL with dynamic pk for list deletion
+        views.ListDelete.as_view(),  # Use the ListDelete view for handling list deletion
+        name="list-delete"  # Name this route "list-delete"
+    ),
+
 
     # CRUD patterns for ToDoItems (Create, Read, Update, Delete)
     # Route for adding a new item to a specific to-do list, identified by list_id
@@ -30,5 +38,12 @@ urlpatterns = [
         "list/<int:list_id>/item/<int:pk>/",  # URL with dynamic list_id and pk to specify which item to update
         views.ItemUpdate.as_view(),  # Use the ItemUpdate view for handling this request
         name="item-update",  # Name this route "item-update"
+    ),
+    
+    # Route for deleting an existing item in a to-do list, identified by list_id and item pk
+    path(
+        "list/<int:list_id>/item/<int:pk>/delete/",  # URL with dynamic list_id and pk for item deletion
+        views.ItemDelete.as_view(),  # Use the ItemDelete view for handling item deletion
+        name="item-delete",  # Name this route "item-delete"
     ),
 ]

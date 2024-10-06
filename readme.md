@@ -282,3 +282,6 @@ Next, create two separate view classes:
 2. **ItemDelete** – This will handle the deletion of a single To-Do Item from a list. After the deletion, the user will be redirected back to the associated To-Do List to view the remaining items.
 
 These views will ensure that users can efficiently remove lists or individual items, streamlining their interaction with the To-Do List application.
+
+Define Deletion Confirmations and URLS
+Create a new template in the file todolist_confirm_delete.html
