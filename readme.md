@@ -304,9 +304,14 @@ This ensures that users can delete both to-do lists and items with confirmation 
 
 
 
-Enable Deletions
-So far, you’ve created views and URLS to delete things, but there’s no mechanism for your user to invoke this functionality. You’ll fix that next.
+To enable deletion functionality within the user interface, follow these steps:
 
-You’ll start by adding a button to todoitem_form.html to allow the user to delete the current item
+1. **Add a Delete Button for To-Do Items**:
+   - Modify the `todoitem_form.html` template to include a button that allows users to delete the current `ToDoItem`.
+   - This button should link to the corresponding deletion URL, enabling users to remove an item from the to-do list.
 
-Now you need to add the user interface element for deleting an entire list.
+2. **Add a Delete Button for To-Do Lists**:
+   - Similarly, in the `todolist.html` template, add a button that allows users to delete an entire `ToDoList`.
+   - This button should link to the deletion URL for the specific list, giving users the option to remove a list along with its associated items.
+
+By incorporating these buttons into the templates, you provide users with the ability to directly delete items and lists from the interface, making the application more interactive and functional.
