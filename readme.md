@@ -308,3 +308,5 @@ Enable Deletions
 So far, you’ve created views and URLS to delete things, but there’s no mechanism for your user to invoke this functionality. You’ll fix that next.
 
 You’ll start by adding a button to todoitem_form.html to allow the user to delete the current item
+
+Now you need to add the user interface element for deleting an entire list.
