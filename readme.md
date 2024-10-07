@@ -3,19 +3,24 @@
 
 ### Table of Contents
 
-1. [How to Download and Run the Project](#how-to-download-and-run-the-project)
-2. [Project Structure](#project-structure)
-3. [How to Write Your Own To-Do List Django App](#how-to-write-your-own-todo-list-django-app)
-   - [Step 1: Project Setup](#step-1-project-setup)
-   - [Step 2: Configure Project](#step-2-configure-project)
-   - [Step 3: Design Data Model](#step-3-design-data-model)
-   - [Step 4: Create a To-Do List and Sample To-Do Item](#step-4-create-a-to-do-list-and-sample-to-do-item)
-   - [Step 5: Create Django Views](#step-5-create-django-views)
-   - [Step 6: Create and Update Model Objects in Django](#step-6-create-and-update-model-objects-in-django)
-   - [Step 7: Implement Delete Functionality](#step-7-implement-delete-functionality)
-4. [Conclusion](#conclusion)
+1. [Introduction](#introduction)  
+   1.1. [Project Structure](#project-structure)  
+   1.2. [Installation](#installation)  
+   1.3. [Running the Django To-Do List App](#running-the-django-to-do-list-app)  
+   1.4. [Using the Application](#using-the-application)  
+   1.5. [Project Structure](#project-structure)  
 
-This structure will provide a clear navigation path for users, allowing them to easily access each section of the README. Let me know if you need any more adjustments or additional sections!
+2. [How to Write Your Own To-Do List](#how-to-write-your-own-to-do-list)  
+   2.1. [Step 1: Create a Django Project](#step-1-create-a-django-project)  
+   2.2. [Step 2: Create a Django App](#step-2-create-a-django-app)  
+   2.3. [Step 3: Set Up Models](#step-3-set-up-models)  
+   2.4. [Step 4: Create Views and URLs](#step-4-create-views-and-urls)  
+   2.5. [Step 5: Set Up Templates](#step-5-set-up-templates)  
+   2.6. [Step 6: Create and Update Model Objects](#step-6-create-and-update-model-objects)  
+   2.7. [Step 7: Implement Delete Functionality](#step-7-implement-delete-functionality)  
+
+3. [Conclusion](#conclusion)
+
 
 ### How to Download and Run the Project
 
@@ -78,6 +83,52 @@ To download and set up the project on your local development environment, follow
    - Open your web browser and navigate to `http://127.0.0.1:8000/` to interact with the To-Do List application.
 
 These steps will allow you to download, set up, and run the project on your local development environment for testing or further development.
+
+### Running the Django To-Do List App
+
+To run the application, execute the following command:
+
+```bash
+python manage.py runserver
+```
+
+If everything is set up correctly, you'll be greeted by the home page of your Django To-Do List application. The heading "Django To-do Lists" will appear on every page, serving as a link back to the home page, making navigation easy.
+
+### Using the Application
+
+1. **Adding a New List**:
+   - Click on **Add a new list** to create a new to-do list.
+   - You'll be taken to a form where you can enter the list's title.
+   - After saving, you'll be directed to the Edit List page, which will display a message if there are no to-do items in the list.
+
+2. **Adding Items to a List**:
+   - Click on **Add a new item** to create a new to-do item.
+   - Fill out the form with a title, description, and due date (defaulting to one week ahead, though you can modify it).
+
+3. **Navigating the App**:
+   - Return to the home page at any time by clicking the "Django To-do Lists" heading.
+   - From the home page, you can add more lists, add items to existing lists, modify item details, or delete lists and items.
+
+Images of the application in action:
+
+- **Home Page**: This is the starting point of the application where you can view, add, and manage your to-do lists.
+
+  ![Home Page](img/homepage.png)
+
+- **Create Item Form**: This form allows you to add a new item to a to-do list, with all the relevant fields like title, description, and due date.
+
+  ![Create Item Form](img/create_item_form.png)
+
+- **Home Page with Lists**: Here's an example of what your home page might look like after adding some lists.
+
+  ![Homepage with Lists](img/homepage_list.png)
+
+- **List Details**: This view shows the details of a specific to-do list, including its items.
+
+  ![List Details](img/list.png)
+
+By following these steps and features, you can fully test and use the Django To-Do List app.
+
 
 ### Project Structure
 This To-Do List project is structured as follows:
@@ -359,7 +410,7 @@ Finally, run your development server to verify that you can create new to-do lis
 python manage.py runserver
 ```
 
-### Conclusion
+## Conclusion
 
 This Django To-Do List application demonstrates a variety of features and concepts, including:
 
@@ -371,47 +422,3 @@ This Django To-Do List application demonstrates a variety of features and concep
 - Configuring URLs to control the Django URL dispatcher and route requests to the correct views
 - Applying modern object-oriented principles and inheritance for code reuse and improved maintainability
 
-### Running the Django To-Do List App
-
-To run the application, execute the following command:
-
-```bash
-python manage.py runserver
-```
-
-If everything is set up correctly, you'll be greeted by the home page of your Django To-Do List application. The heading "Django To-do Lists" will appear on every page, serving as a link back to the home page, making navigation easy.
-
-### Using the Application
-
-1. **Adding a New List**:
-   - Click on **Add a new list** to create a new to-do list.
-   - You'll be taken to a form where you can enter the list's title.
-   - After saving, you'll be directed to the Edit List page, which will display a message if there are no to-do items in the list.
-
-2. **Adding Items to a List**:
-   - Click on **Add a new item** to create a new to-do item.
-   - Fill out the form with a title, description, and due date (defaulting to one week ahead, though you can modify it).
-
-3. **Navigating the App**:
-   - Return to the home page at any time by clicking the "Django To-do Lists" heading.
-   - From the home page, you can add more lists, add items to existing lists, modify item details, or delete lists and items.
-
-Images of the application in action:
-
-- **Home Page**: This is the starting point of the application where you can view, add, and manage your to-do lists.
-
-  ![Home Page](img/homepage.png)
-
-- **Create Item Form**: This form allows you to add a new item to a to-do list, with all the relevant fields like title, description, and due date.
-
-  ![Create Item Form](img/create_item_form.png)
-
-- **Home Page with Lists**: Here's an example of what your home page might look like after adding some lists.
-
-  ![Homepage with Lists](img/homepage_list.png)
-
-- **List Details**: This view shows the details of a specific to-do list, including its items.
-
-  ![List Details](img/list.png)
-
-By following these steps and features, you can fully test and use the Django To-Do List app.
