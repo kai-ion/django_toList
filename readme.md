@@ -1,25 +1,48 @@
 
-## Introduction
+## Project Overview
+
+The Django To-Do List application is a web-based platform designed to help users manage their tasks efficiently. Users can create multiple to-do lists, add items to each list, update item details, and delete items as needed. This application utilizes Django's powerful framework to handle backend operations, making it easy to develop and maintain. The interface is user-friendly, allowing for seamless navigation between lists and tasks. The app supports various functionalities such as setting due dates for tasks and modifying list titles, ensuring users can customize their experience to fit their needs. The project serves as a practical example of using Django to develop a functional web application, showcasing key concepts such as CRUD operations, URL routing, and form handling.
 
 ### Table of Contents
 
-1. [Introduction](#introduction)  
-   1.1. [Project Structure](#project-structure)  
-   1.2. [Installation](#installation)  
-   1.3. [Running the Django To-Do List App](#running-the-django-to-do-list-app)  
-   1.4. [Using the Application](#using-the-application)  
-   1.5. [Project Structure](#project-structure)  
+1. [Project Overview](#project-overview)  
+2. [Prerequisites](#prerequisites)  
+3. [Introduction](#introduction)   
+   3.1. [Installation](#how-to-download-and-run-the-project)  
+   3.2. [Running the Django To-Do List App](#running-the-django-to-do-list-app)  
+   3.3. [Using the Application](#using-the-application)  
+   3.4. [Project Structure](#project-structure)  
 
-2. [How to Write Your Own To-Do List](#how-to-write-your-own-to-do-list)  
-   2.1. [Step 1: Create a Django Project](#step-1-create-a-django-project)  
-   2.2. [Step 2: Create a Django App](#step-2-create-a-django-app)  
-   2.3. [Step 3: Set Up Models](#step-3-set-up-models)  
-   2.4. [Step 4: Create Views and URLs](#step-4-create-views-and-urls)  
-   2.5. [Step 5: Set Up Templates](#step-5-set-up-templates)  
-   2.6. [Step 6: Create and Update Model Objects](#step-6-create-and-update-model-objects)  
-   2.7. [Step 7: Implement Delete Functionality](#step-7-implement-delete-functionality)  
+4. [How to Write Your Own To-Do List](#how-to-write-your-own-to-do-list)  
+   4.1. [Step 1: Create a Django Project](#step-1-create-a-django-project)  
+   4.2. [Step 2: Create a Django App](#step-2-create-a-django-app)  
+   4.3. [Step 3: Set Up Models](#step-3-set-up-models)  
+   4.4. [Step 4: Create Views and URLs](#step-4-create-views-and-urls)  
+   4.5. [Step 5: Set Up Templates](#step-5-set-up-templates)  
+   4.6. [Step 6: Create and Update Model Objects](#step-6-create-and-update-model-objects)  
+   4.7. [Step 7: Implement Delete Functionality](#step-7-implement-delete-functionality)  
 
-3. [Conclusion](#conclusion)
+5. [Testing Your Application](#testing-your-application-1)  
+6. [Conclusion](#conclusion)  
+
+
+
+## Prerequisites
+
+Before you begin, ensure you have the following software installed on your system:
+
+- **Python**: Version 3.6 or higher.
+- **Django**: Version 3.0 or higher. You can install it using pip:
+  ```bash
+  pip install django
+  ```
+- **Git**: A version control system to manage your project’s code. You can download it from [git-scm.com](https://git-scm.com/).
+- **GitHub**: A platform for hosting and collaborating on Git repositories. You can sign up for an account at [github.com](https://github.com/).
+- **A code editor**: Any code editor of your choice (e.g., Visual Studio Code, PyCharm, or Sublime Text) for writing and editing code.
+
+Make sure you have these prerequisites set up before moving on to the installation and setup of the Django To-Do List application.
+
+## Introduction
 
 
 ### How to Download and Run the Project
