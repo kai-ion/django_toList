@@ -13,14 +13,14 @@ The Django To-Do List application is a web-based platform designed to help users
    3.3. [Using the Application](#using-the-application)  
    3.4. [Project Structure](#project-structure)  
 
-4. [How to Write Your Own To-Do List](#how-to-write-your-own-to-do-list)  
-   4.1. [Step 1: Create a Django Project](#step-1-create-a-django-project)  
-   4.2. [Step 2: Create a Django App](#step-2-create-a-django-app)  
-   4.3. [Step 3: Set Up Models](#step-3-set-up-models)  
-   4.4. [Step 4: Create Views and URLs](#step-4-create-views-and-urls)  
-   4.5. [Step 5: Set Up Templates](#step-5-set-up-templates)  
-   4.6. [Step 6: Create and Update Model Objects](#step-6-create-and-update-model-objects)  
-   4.7. [Step 7: Implement Delete Functionality](#step-7-implement-delete-functionality)  
+4. [How to Write Your Own To-Do List](#how-to-write-your-own-todo-list-django-app)  
+   4.1. [Step 1: Django Project Setup](#step-1-django-project-setup)  
+   4.2. [Step 2: Configure App](#step-2-configure-app)  
+   4.3. [Step 3: Set Up Data Models](#step-3-set-up-data-models)  
+   4.4. [Step 4: Create a To-Do List and Sample To-Do Item](#step-4-create-a-to-do-list-and-sample-to-do-item)  
+   4.5. [Step 5: Create Django Views](#step-5-create-django-views)  
+   4.6. [Step 6: Create and Update Model Objects in Django](#step-6-create-and-update-model-objects-in-django)  
+   4.7. [Step 7: Delete To-Do Lists and Items](#step-7-delete-to-do-lists-and-items)  
 
 5. [Testing Your Application](#testing-your-application-1)  
 6. [Conclusion](#conclusion)  
@@ -196,7 +196,7 @@ This structure organizes the code into a modular format, with separate component
 
 ## How to write your own todo list django app
 
-### Step 1: Project Setup
+### Step 1: Django Project Setup
 
 1. **Initialize GitHub Repository**:
    - Create a new GitHub repository for your project.
@@ -248,7 +248,7 @@ This structure organizes the code into a modular format, with separate component
    └── requirements.txt
    ```
 
-### Step 2: Configure Project
+### Step 2: Configure App
 
 1. **Create URL Paths**:
    - In `urls.py`, set up URL patterns for your application.
@@ -258,7 +258,7 @@ This structure organizes the code into a modular format, with separate component
    python manage.py runserver
    ```
 
-### Step 3: Design Data Model
+### Step 3: Set Up Data Models
 
 1. **Define Data Models in `models.py`**:
    - Import necessary modules.
