@@ -1,3 +1,47 @@
+
+
+## Introduction
+
+This To-Do List project is structured as follows:
+
+```
+TODO_LIST/
+│
+├── img/
+│   ├── create_item_form.png
+│   ├── homepage_list.png
+│   ├── homepage.png
+│   └── list.png
+│
+├── todo_app/
+│   ├── migrations/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+│
+├── todo_project/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── venv/
+│
+├── db.sqlite3
+├── main.py
+├── manage.py
+├── README.md
+└── requirements.txt
+```
+
+This structure organizes the code into a modular format, with separate components for templates, views, models, and the core project settings. Images used for UI display are located in the `img/` folder for easy reference. The virtual environment (`venv/`) ensures package management is isolated for this project.
+
 ### Step 1: Project Setup
 
 1. **Initialize GitHub Repository**:
@@ -199,7 +243,7 @@ First, ensure that you import the necessary modules from `django.views.generic`,
 
 These views make it easier for users to remove lists or individual items, improving the application's functionality.
 
-### Steps for Deletion Functionality
+#### Steps for Deletion Functionality
 
 1. **Create Deletion Templates**:
    - Create `todolist_confirm_delete.html` for confirming the deletion of a `ToDoList` object.
@@ -217,7 +261,7 @@ These views make it easier for users to remove lists or individual items, improv
 
 These steps provide users with the option to delete to-do lists and items while confirming the action, adding a layer of usability and control.
 
-### Adding Deletion Buttons in the Interface
+#### Adding Deletion Buttons in the Interface
 
 1. **Delete Button for To-Do Items**:
    - Modify `todoitem_form.html` to include a button that links to the item's deletion URL, allowing users to remove the item from the list.
