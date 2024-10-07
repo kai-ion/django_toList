@@ -21,6 +21,7 @@ The Django To-Do List application is a web-based platform designed to help users
    4.5. [Step 5: Create Django Views](#step-5-create-django-views)  
    4.6. [Step 6: Create and Update Model Objects in Django](#step-6-create-and-update-model-objects-in-django)  
    4.7. [Step 7: Delete To-Do Lists and Items](#step-7-delete-to-do-lists-and-items)  
+   4.8. [Step 8: Add Custom CSS](#step-8-adding-custom-css)  
 
 5. [Testing Your Application](#testing-your-application-1)  
 6. [Conclusion](#conclusion)  
@@ -168,6 +169,9 @@ TODO_LIST/
 ├── todo_app/
 │   ├── migrations/
 │   ├── templates/
+│   └── static/
+│       └── todo_app/
+│           └── styles.css
 │   ├── __init__.py
 │   ├── admin.py
 │   ├── apps.py
@@ -433,6 +437,98 @@ Finally, run your development server to verify that you can create new to-do lis
 python manage.py runserver
 ```
 
+
+### Step 8: Adding Custom CSS
+
+Current CSS Framework is using Simple.css for basic styling. The following steps will guide you in creating a custom CSS file to add hover effects.
+
+To enhance the user experience by adding hover effects to clickable elements, follow these steps:
+
+1. **Create a CSS File**  
+   Create a directory for your static files if you don't already have one. This is usually named `static` and can be located at the same level as your `templates` directory. Inside the `static` directory, create a subdirectory for your app (e.g., `todo_app`), and then create a CSS file (e.g., `styles.css`). The structure should look like this:
+
+   ```
+   todo_list/
+   ├── todo_app/
+   │   ├── templates/
+   │   │   └── base.html
+   │   └── static/
+   │       └── todo_app/
+   │           └── styles.css
+   ```
+
+2. **Add Styles to the CSS File**  
+   In your `styles.css`, add the hover styles for your clickable links:
+
+   ```css
+   /* static/todo_app/styles.css */
+
+   /* Custom CSS for hover effect on links */
+   h1 {
+       cursor: pointer; /* Change cursor to pointer for clickable element */
+       transition: color 0.3s; /* Smooth color transition */
+   }
+
+   h1:hover {
+       color: #555; /* Change this color to your preferred hover color */
+       opacity: 0.7; /* Dim the text on hover */
+   }
+
+   a {
+       transition: color 0.3s; /* Smooth color transition for links */
+   }
+
+   a:hover {
+       color: #555; /* Change this color to your preferred hover color */
+       opacity: 0.7; /* Dim the text on hover */
+   }
+
+   /* Custom CSS for hover effect on div elements acting as buttons */
+   div[role="button"] {
+       cursor: pointer; /* Pointer to indicate it's clickable */
+       transition: color 0.3s ease; /* Smooth color transition */
+   }
+
+   div[role="button"]:hover {
+       color: #555; /* Change color on hover */
+       opacity: 0.7; /* Dim the text slightly */
+   }
+   ```
+
+3. **Link the CSS File in Your Base Template**  
+   Now, update your `base.html` file to link to the new CSS file:
+
+   ```html
+   <!-- Link to your custom CSS file -->
+   <link rel="stylesheet" href="{% static 'todo_app/styles.css' %}">
+   ```
+
+4. **Ensure You Have Static Files Configuration**  
+   Make sure you have the static files configuration set up in your Django project. In your `settings.py`, you should have:
+
+   ```python
+   # settings.py
+
+   import os
+
+   # ...
+
+   # Static files (CSS, JavaScript, Images)
+   STATIC_URL = '/static/'
+   STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Adjust BASE_DIR if necessary
+   ```
+
+5. **Load the Static Template Tag**  
+   Before you can use the `{% static %}` template tag, make sure to load it at the top of your `base.html`:
+
+   ```html
+   {% load static %}
+   ```
+
+### Summary
+Now, your application will use the styles defined in `styles.css`, and the hover effects will apply as intended. Remember to run your server and check your app to see the changes in effect.
+
+
 ## Conclusion
 
 This Django To-Do List application demonstrates a variety of features and concepts, including:
@@ -444,130 +540,3 @@ This Django To-Do List application demonstrates a variety of features and concep
 - Handling standard database operations (CRUD) through class-based views
 - Configuring URLs to control the Django URL dispatcher and route requests to the correct views
 - Applying modern object-oriented principles and inheritance for code reuse and improved maintainability
-
-
-
-
-Create Custom CSS file
-Add hover style for clickable links
-
-### 1. Create a CSS File
-1. Create a directory for your static files if you don't already have one. This is usually named `static` and can be located at the same level as your `templates` directory.
-2. Inside the `static` directory, create a subdirectory for your app (e.g., `todo_app`), and then create a CSS file (e.g., `styles.css`). The structure should look like this:
-
-```
-todo_list/
-├── todo_app/
-│   ├── templates/
-│   │   └── base.html
-│   └── static/
-│       └── todo_app/
-│           └── styles.css
-```
-
-### 2. Add Styles to the CSS File
-In your `styles.css`, add the hover styles for your clickable links:
-
-```css
-/* static/todo_app/styles.css */
-
-/* Custom CSS for hover effect on links */
-h1 {
-    cursor: pointer; /* Change cursor to pointer for clickable element */
-    transition: color 0.3s; /* Smooth color transition */
-}
-
-h1:hover {
-    color: #555; /* Change this color to your preferred hover color */
-    opacity: 0.7; /* Dim the text on hover */
-}
-
-a {
-    transition: color 0.3s; /* Smooth color transition for links */
-}
-
-a:hover {
-    color: #555; /* Change this color to your preferred hover color */
-    opacity: 0.7; /* Dim the text on hover */
-}
-
-/* Custom CSS for hover effect on div elements acting as buttons */
-div[role="button"] {
-    cursor: pointer; /* Pointer to indicate it's clickable */
-    transition: color 0.3s ease; /* Smooth color transition */
-    
-}
-
-div[role="button"]:hover {
-    color: #555; /* Change color on hover */
-    opacity: 0.7; /* Dim the text slightly */
-}
-```
-
-### 3. Link the CSS File in Your Base Template
-Now, update your `base.html` file to link to the new CSS file:
-
-```html
-<!-- todo_list/todo_app/templates/base.html -->
-<!-- Base template for Django To-do Lists application -->
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags for character encoding and responsive design -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Link to Simple.css for basic styling -->
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    
-    <!-- Link to your custom CSS file -->
-    <link rel="stylesheet" href="{% static 'todo_app/styles.css' %}">
-
-    <title>Django To-do Lists</title> <!-- Title of the webpage -->
-</head>
-
-<body>
-    <div>
-        <!-- Main heading that redirects to the index page when clicked -->
-        <h1 onclick="location.href='{% url 'index' %}'">
-            Django To-do Lists
-        </h1>
-    </div>
-    <div>
-        <!-- Placeholder for content specific to different pages -->
-        {% block content %}
-        This content will be replaced by different HTML code for each page.
-        {% endblock %}
-    </div>
-</body>
-
-</html>
-```
-
-### 4. Ensure You Have Static Files Configuration
-Make sure you have the static files configuration set up in your Django project. In your `settings.py`, you should have:
-
-```python
-# settings.py
-
-import os
-
-# ...
-
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Adjust BASE_DIR if necessary
-```
-
-### 5. Load the Static Template Tag
-Before you can use the `{% static %}` template tag, make sure to load it at the top of your `base.html`:
-
-```html
-{% load static %}
-```
-
-
-
-### Summary
-Now, your application will use the styles defined in `styles.css`, and the hover effects will apply as intended. Remember to run your server and check your app to see the changes in effect.
