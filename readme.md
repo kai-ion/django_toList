@@ -1,6 +1,21 @@
 
 ## Introduction
 
+### Table of Contents
+
+1. [How to Download and Run the Project](#how-to-download-and-run-the-project)
+2. [Project Structure](#project-structure)
+3. [How to Write Your Own To-Do List Django App](#how-to-write-your-own-todo-list-django-app)
+   - [Step 1: Project Setup](#step-1-project-setup)
+   - [Step 2: Configure Project](#step-2-configure-project)
+   - [Step 3: Design Data Model](#step-3-design-data-model)
+   - [Step 4: Create a To-Do List and Sample To-Do Item](#step-4-create-a-to-do-list-and-sample-to-do-item)
+   - [Step 5: Create Django Views](#step-5-create-django-views)
+   - [Step 6: Create and Update Model Objects in Django](#step-6-create-and-update-model-objects-in-django)
+   - [Step 7: Implement Delete Functionality](#step-7-implement-delete-functionality)
+4. [Conclusion](#conclusion)
+
+This structure will provide a clear navigation path for users, allowing them to easily access each section of the README. Let me know if you need any more adjustments or additional sections!
 
 ### How to Download and Run the Project
 
@@ -335,6 +350,14 @@ These steps provide users with the option to delete to-do lists and items while 
    - In `todolist.html`, add a button to allow users to delete an entire list. This button should link to the deletion URL for the list, enabling the removal of a list along with its items.
 
 By adding these deletion options in the templates, you enhance the application's interactivity, ensuring that users can delete lists and items as needed.
+
+#### Testing Your Application
+
+Finally, run your development server to verify that you can create new to-do lists, add items to those lists, update existing items, and delete lists or items as needed. Ensure that the form submissions are processed correctly and that users are redirected appropriately after creating, updating, or deleting their lists or items.
+
+```bash
+python manage.py runserver
+```
 
 ### Conclusion
 
