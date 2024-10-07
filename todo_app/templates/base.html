@@ -7,31 +7,17 @@
     <!-- Required meta tags for character encoding and responsive design -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Load static files -->
+    {% load static %}
+
     <!-- Link to Simple.css for basic styling -->
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="{% static 'todo_app/styles.css' %}">
     
     <title>Django To-do Lists</title> <!-- Title of the webpage -->
-    <style>
-        /* Custom CSS for hover effect on links */
-        h1 {
-            cursor: pointer; /* Change cursor to pointer for clickable element */
-            transition: color 0.3s; /* Smooth color transition */
-        }
-
-        h1:hover {
-            color: #555; /* Change this color to your preferred hover color */
-            opacity: 0.7; /* Dim the text on hover */
-        }
-
-        a {
-            transition: color 0.3s; /* Smooth color transition for links */
-        }
-
-        a:hover {
-            color: #555; /* Change this color to your preferred hover color */
-            opacity: 0.7; /* Dim the text on hover */
-        }
-    </style>
+    
 </head>
 
 <body>
