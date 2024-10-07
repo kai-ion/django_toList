@@ -1,7 +1,70 @@
 
-
 ## Introduction
 
+
+### How to Download and Run the Project
+
+To download and set up the project on your local development environment, follow these steps:
+
+1. **Clone the Repository**:
+   - Open a terminal and run the following command to clone the project from GitHub:
+     ```
+     git clone https://github.com/yourusername/todo_list.git
+     ```
+     Replace `yourusername` with your actual GitHub username and ensure the repository URL is correct.
+
+2. **Navigate to the Project Directory**:
+   - After cloning, navigate to the project's root directory:
+     ```
+     cd todo_list
+     ```
+
+3. **Set Up the Virtual Environment**:
+   - If the `venv` folder is not included, you will need to create a virtual environment to manage dependencies:
+     ```
+     python -m venv venv
+     ```
+
+4. **Activate the Virtual Environment**:
+   - On Windows:
+     ```
+     venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```
+     source venv/bin/activate
+     ```
+
+5. **Install Project Dependencies**:
+   - With the virtual environment activated, install the required packages using `pip`:
+     ```
+     pip install -r requirements.txt
+     ```
+
+6. **Apply Migrations**:
+   - To set up the database, apply migrations:
+     ```
+     python manage.py migrate
+     ```
+
+7. **Create a Superuser (Optional)**:
+   - If you want access to the admin interface, create a superuser:
+     ```
+     python manage.py createsuperuser
+     ```
+
+8. **Run the Development Server**:
+   - Start the Django development server:
+     ```
+     python manage.py runserver
+     ```
+
+9. **Access the Application**:
+   - Open your web browser and navigate to `http://127.0.0.1:8000/` to interact with the To-Do List application.
+
+These steps will allow you to download, set up, and run the project on your local development environment for testing or further development.
+
+### Project Structure
 This To-Do List project is structured as follows:
 
 ```
@@ -41,6 +104,8 @@ TODO_LIST/
 ```
 
 This structure organizes the code into a modular format, with separate components for templates, views, models, and the core project settings. Images used for UI display are located in the `img/` folder for easy reference. The virtual environment (`venv/`) ensures package management is isolated for this project.
+
+## How to write your own todo list django app
 
 ### Step 1: Project Setup
 
